@@ -1,0 +1,5 @@
+name: quarkus-pinot
+title: Quarkus Pinot
+version: dev
+nav:
+  - modules/ROOT/nav.adoc
