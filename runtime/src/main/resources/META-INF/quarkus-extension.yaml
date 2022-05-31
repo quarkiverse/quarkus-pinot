@@ -1,0 +1,13 @@
+name: Quarkus Pinot
+description: Apache Pinot client for Quarkus.
+metadata:
+  keywords:
+    - pinot
+    - OLAP
+    - data
+    - database
+    - analytics
+#  guide: ...
+  categories:
+    - "data"
+  status: "experimental"
