@@ -19,11 +19,11 @@ public class ConnectionProducer {
     public Connection produce() {
         if (pinotConfig.zkUrl.isEmpty() && pinotConfig.hostList.isEmpty()) {
             throw new IllegalArgumentException("No Apache Pinot configuration found, " +
-                    "you need to configure quarkus.pinot.zk-url or quarkus.pinot.");
+                    "you need to configure quarkus.pinot.zk-url or quarkus.pinot.host-list.");
         }
         if (pinotConfig.zkUrl.isPresent() && pinotConfig.hostList.isPresent()) {
             throw new IllegalArgumentException("Invalid Apache Pinot configuration found, " +
-                    "you need to configure quarkus.pinot.zk-url or quarkus.pinot. not both");
+                    "you need to configure quarkus.pinot.zk-url or quarkus.pinot.host-list not both.");
         }
 
         if (pinotConfig.zkUrl.isPresent()) {

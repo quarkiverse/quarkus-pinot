@@ -17,7 +17,7 @@ public class PinotConfig {
     public Optional<String> zkUrl;
 
     /**
-     * Host list in the format {broker1}:{port1},{broker2:port2}.
+     * Broker host list in the format {broker1}:{port1},{broker2:port2}.
      * 
      * @see org.apache.pinot.client.ConnectionFactory#fromHostList(String...) .
      */
