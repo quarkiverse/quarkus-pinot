@@ -17,16 +17,36 @@
 package io.quarkiverse.pinot.it;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+
+import org.apache.pinot.client.Connection;
+import org.apache.pinot.client.Request;
+import org.apache.pinot.client.ResultSet;
+import org.apache.pinot.client.ResultSetGroup;
 
 @Path("/pinot")
 @ApplicationScoped
 public class PinotResource {
-    // add some rest methods here
+    @Inject
+    Connection pinotConnection;
 
     @GET
     public String hello() {
-        return "Hello pinot";
+        String query = "select playerName, sum(runs) from baseballStats where yearID>=2000 group by playerName order by sum(runs) desc limit 10";
+
+        Request pinotClientRequest = new Request("sql", query);
+        ResultSetGroup pinotResultSetGroup = pinotConnection.execute(pinotClientRequest);
+        ResultSet resultTableResultSet = pinotResultSetGroup.getResultSet(0);
+
+        StringBuilder results = new StringBuilder();
+        for (int i = 0; i < resultTableResultSet.getRowCount(); i++) {
+            var year = resultTableResultSet.getString(i, 0);
+            var count = resultTableResultSet.getString(i, 1);
+            results.append(year).append(" | ").append(count).append('\n');
+        }
+
+        return results.toString();
     }
 }
