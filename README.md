@@ -5,7 +5,7 @@
 
 This repository host an *experimental* and *minimalist* Quarkus extension to use Apache Pinot.
 
-There is no documentation nor integration test nor example application yet.
+There is no documentation nor example application yet.
 
 *This extension didn't work in native yet*.
 
