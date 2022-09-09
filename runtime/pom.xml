@@ -21,9 +21,10 @@
     <dependency>
       <groupId>org.apache.pinot</groupId>
       <artifactId>pinot-java-client</artifactId>
+      <!-- Don't forget to update the container version used in the IT -->
       <version>0.10.0</version>
-      <!-- Exclude log4j, we will use the JBoss adaptor instead-->
       <exclusions>
+        <!-- Exclude log4j, we will use the JBoss adaptor instead-->
         <exclusion>
           <groupId>org.slf4j</groupId>
           <artifactId>slf4j-log4j12</artifactId>
