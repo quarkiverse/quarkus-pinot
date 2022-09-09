@@ -16,19 +16,19 @@ import io.quarkus.test.junit.QuarkusTest;
 @QuarkusTest
 public class PinotResourceTest {
 
-    private static GenericContainer<?> pinotdContainer = new GenericContainer<>("apachepinot/pinot:0.9.3")
+    private static GenericContainer<?> pinotContainer = new GenericContainer<>("apachepinot/pinot:0.10.0")
             .withCommand("QuickStart", "-type", "batch")
             .waitingFor(Wait.forLogMessage(".*Offline quickstart setup complete.*\\n", 1));
 
     @BeforeAll
     static void startContainer() {
-        pinotdContainer.setPortBindings(List.of("2181:2123"));
-        pinotdContainer.start();
+        pinotContainer.setPortBindings(List.of("2181:2123"));
+        pinotContainer.start();
     }
 
     @AfterAll
     static void stopContainer() {
-        pinotdContainer.stop();
+        pinotContainer.stop();
     }
 
     @Test
