@@ -10,7 +10,7 @@ import io.quarkus.runtime.annotations.ConfigRoot;
 public class PinotConfig {
     /**
      * Zookeeper URL in the format {host1}:{port1}/{path1},{host2}:{port2}/{path2}.
-     * 
+     *
      * @see org.apache.pinot.client.ConnectionFactory#fromZookeeper(String).
      */
     @ConfigItem
@@ -18,7 +18,7 @@ public class PinotConfig {
 
     /**
      * Broker host list in the format {broker1}:{port1},{broker2:port2}.
-     * 
+     *
      * @see org.apache.pinot.client.ConnectionFactory#fromHostList(String...) .
      */
     @ConfigItem
