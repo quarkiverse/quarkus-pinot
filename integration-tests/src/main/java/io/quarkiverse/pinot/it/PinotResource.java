@@ -16,10 +16,10 @@
 */
 package io.quarkiverse.pinot.it;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
 
 import org.apache.pinot.client.Connection;
 import org.apache.pinot.client.Request;
